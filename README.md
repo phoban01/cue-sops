@@ -9,14 +9,13 @@ We use Cue annotations to specify the fields we need encrypted. The program then
 Configure an age key and sops configuration file:
 
 ```bash
-AGE_KEY_NAME="cuesops.txt"
+AGE_KEY_NAME="sops.txt"
 AGE_CONF_DIR="$HOME/.config/sops/age"
 AGE_KEY_PATH=${AGE_CONF_DIR}/${AGE_KEY_NAME}
 
 mkdir -p ${AGE_CONF_DIR}
 
-rm -f ${AGE_KEY_PATH}
-age-keygen -o ${AGE_KEY_PATH}
+age-keygen -o ${AGE_KEY_PATH} || true
 
 AGE=$(awk '/public/{print $4}' ${AGE_KEY_PATH})
 
