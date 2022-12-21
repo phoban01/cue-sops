@@ -1,5 +1,10 @@
-## Encrypt secrets in CUE using SOPS
+# Encrypt secrets in CUE using SOPS
 
+This is a proof of concept tool to demonstrate encrypting secrets defined in CUE using sops.
+
+We use Cue annotations to specify the fields we need encrypted. The program then extracts fields with attributes and passes them to the SOPS encrypted regex parameter. The Cue file is converted to JSON and encrypted by SOPS. The result is converted back to CUE and the encrypted values as substituted into the appropriate fields. Finally we insert the sops metadata object into the cuefile.
+
+### Walkthrough
 
 Configure an age key and sops configuration file:
 
@@ -122,4 +127,4 @@ sops -d secrets.json
 ## Current Limitations
 
 - We currently can't handle values in the file that are not concrete, for example constraints.
-
+- Currently doesn't support nested fields very well if they share names with top-level fields.
