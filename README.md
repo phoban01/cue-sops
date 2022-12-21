@@ -1,4 +1,4 @@
-## Encrypt Cue secrets with SOPS
+## Encrypt secrets in CUE using SOPS
 
 
 Configure an age key and sops configuration file:
