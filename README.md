@@ -15,7 +15,7 @@ AGE_KEY_PATH=${AGE_CONF_DIR}/${AGE_KEY_NAME}
 
 mkdir -p ${AGE_CONF_DIR}
 
-age-keygen -o ${AGE_KEY_PATH} || true
+age-keygen -o ${AGE_KEY_PATH} > /dev/null 2>&1 || true
 
 AGE=$(awk '/public/{print $4}' ${AGE_KEY_PATH})
 
