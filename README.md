@@ -94,7 +94,7 @@ sops: {
 Let's also convert this to JSON:
 
 ```bash
-cue val secrets.cue --out json > secrets.json
+cue eval secrets.cue --out json > secrets.json
 ```
 
 To decrypt the CUE file execute:
